@@ -34,8 +34,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void update(EmployeeDTO employeeDTO) {
         Employee employee = new Employee();
         BeanUtils.copyProperties(employeeDTO, employee);
-        employee.setUpdateTime(LocalDateTime.now());
-        employee.setUpdateUser(BaseContext.getCurrentId());
         employeeMapper.update(employee);
     }
 
@@ -49,9 +47,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void startOrStop(Integer status, Long id) {
         Employee employee = Employee.builder()
-                .status(status)
                 .id(id)
-                .updateTime(LocalDateTime.now())
+                .status(status)
                 .build();
 
         employeeMapper.update(employee);
@@ -60,7 +57,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     /**
      * 员工分页查询
-     * @param employeePageQueryDTO
+     * @param employeePageQueryDTO 分页数据
      * @return 分页结果
      */
     @Override
@@ -86,21 +83,13 @@ public class EmployeeServiceImpl implements EmployeeService {
         //密码md5加密
         employee.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));
 
-        //Set createTime and updateTime
-        employee.setCreateTime(LocalDateTime.now());
-        employee.setUpdateTime(LocalDateTime.now());
-
-        //Set createUser and updateUser
-        employee.setUpdateUser(BaseContext.getCurrentId());
-        employee.setUpdateUser(BaseContext.getCurrentId());
-
         employeeMapper.insert(employee);
     }
 
     /**
      * 员工登录
      *
-     * @param employeeLoginDTO
+     * @param employeeLoginDTO 员工登录数据
      * @return 实体对象
      */
     public Employee login(EmployeeLoginDTO employeeLoginDTO) {

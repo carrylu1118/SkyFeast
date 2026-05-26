@@ -34,8 +34,6 @@ public class EmployeeController {
 
     /**
      * 登录
-     *
-     * @param employeeLoginDTO
      */
     @PostMapping("/login")
     public Result<EmployeeLoginVO> login(@RequestBody EmployeeLoginDTO employeeLoginDTO) {
@@ -71,10 +69,9 @@ public class EmployeeController {
 
     /**
      * 新增员工
-     * @param employeeDTO
      */
     @PostMapping
-    public Result save(@RequestBody EmployeeDTO employeeDTO){
+    public Result<String> save(@RequestBody EmployeeDTO employeeDTO){
         log.info("新增员工，员工数据：{}", employeeDTO);
         employeeService.save(employeeDTO);
         return Result.success();
@@ -82,7 +79,6 @@ public class EmployeeController {
 
     /**
      * 员工分页查询
-     * @param employeePageQueryDTO
      */
     @GetMapping("/page")
     public Result<PageResult> page(EmployeePageQueryDTO employeePageQueryDTO){
@@ -95,7 +91,7 @@ public class EmployeeController {
      * 启用禁用员工账号
      */
     @PostMapping("/status/{status}")
-    public Result startOrStop(@PathVariable Integer status, Long id ){
+    public Result<String> startOrStop(@PathVariable Integer status, Long id ){
         log.info("启用禁用员工账号：{},{}",status,id);
         employeeService.startOrStop(status,id);
         return Result.success();
@@ -115,7 +111,7 @@ public class EmployeeController {
      * 编辑员工信息
      */
     @PutMapping
-    public Result update(@RequestBody EmployeeDTO employeeDTO){
+    public Result<String> update(@RequestBody EmployeeDTO employeeDTO){
         log.info("编辑员工信息：{}",employeeDTO);
         employeeService.update(employeeDTO);
         return Result.success();
