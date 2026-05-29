@@ -88,7 +88,7 @@ public class DishServiceImpl implements DishService {
         List<Long> setmealIds = setmealDishMapper.getSetmealIdsByDishIds(ids);
         if(setmealIds != null && setmealIds.size() > 0){
             //当前分类下有菜品，不能删除
-            throw new DeletionNotAllowedException(MessageConstant.CATEGORY_BE_RELATED_BY_DISH);
+            throw new DeletionNotAllowedException(MessageConstant.DISH_BE_RELATED_BY_SETMEAL);
         }
 
         //删除菜品表中的菜品数据

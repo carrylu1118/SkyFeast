@@ -11,3 +11,8 @@ sky:
     bucketName: carry-javaweb-ai
     access-key-id: LTAI5tAqMfo7iGWsDb5odBCa
     access-key-secret: vo4IenTP1xqUsNGC5Z0RUszAjkiwWP
+  redis:
+    host: 192.168.239.200
+    port: 6379
+    password: 021218
+    database: 0
