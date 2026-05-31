@@ -8,7 +8,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 
 @Slf4j
 @Configuration
-public class ReidsConfiguration {
+public class RedisConfiguration {
     @Bean
     public RedisTemplate redisTemplate(RedisConnectionFactory redisConnectionFactory){
         log.info("开始创建Redis模板对象...");
