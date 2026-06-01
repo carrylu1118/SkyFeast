@@ -17,4 +17,8 @@ public interface ShoppingCartService {
      */
      void addShoppingCart(ShoppingCartDTO shoppingCartDTO);
 
+    /**
+     * 删除购物车中一个商品
+     */
+    void subShoppingCart(ShoppingCartDTO shoppingCartDTO);
 }
