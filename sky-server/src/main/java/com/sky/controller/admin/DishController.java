@@ -86,7 +86,18 @@ public class DishController {
         return Result.success();
     }
 
-    //TODO 菜品的起售停售
+    /**
+     * 菜品起售停售
+     * @param status 状态
+     * @param id 菜品id
+     */
+    public Result startOrStop(Integer status, Long id) {
+        log.info("菜品起售停售：{}", id);
+        dishService.startOrStop(status, id);
+        //清理缓存
+        clearCache("*dish_*");
+        return Result.success();
+    }
 
     /**
      * 根据分类id查询菜品
