@@ -22,6 +22,16 @@ public interface UserMapper {
      */
     void insert(User user);
 
+    /**
+     * 根据id查询用户
+     * @param userId 用户id
+     * @return 用户信息
+     */
     @Select("select * from user where id = #{id}")
     User getById(Long userId);
+
+    /**
+     * 根据条件统计用户数量
+     */
+    Integer countByMap(Object o);
 }
