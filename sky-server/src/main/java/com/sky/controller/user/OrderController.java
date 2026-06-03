@@ -36,7 +36,7 @@ public class OrderController {
      * @param ordersPaymentDTO 订单支付信息
      */
     @PutMapping("/payment")
-    public Result<OrderPaymentVO> payment(@RequestBody OrdersPaymentDTO ordersPaymentDTO) throws Exception {
+    public Result<OrderPaymentVO> payment(@RequestBody OrdersPaymentDTO ordersPaymentDTO) throws Exception  {
         log.info("订单支付：{}", ordersPaymentDTO);
         OrderPaymentVO orderPaymentVO = orderService.payment(ordersPaymentDTO);
         log.info("生成预支付交易单：{}", orderPaymentVO);
@@ -88,6 +88,16 @@ public class OrderController {
     @PostMapping("/repetition/{id}")
     public Result<Void> repetition(@PathVariable("id") Long id){
         orderService.repetition(id);
+        return Result.success();
+    }
+
+    /**
+     * 客户催单
+     * @param id 订单Id
+     */
+    @GetMapping("/reminder/{id}")
+    public Result<Void> reminder(@PathVariable("id") Long id){
+        orderService.reminder(id);
         return Result.success();
     }
 }
