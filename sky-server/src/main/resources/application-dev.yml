@@ -20,7 +20,14 @@ sky:
   wechat:
       appid: wxf8d7775cabffcfdf
       secret: 91b8ae813647cf71bd2fd1f3a6fee341
+      mchid: 1561414331
+      mchSerialNo: 4B3B3DC35414AD50B1B755BAF8DE9CC7CF407606
+      privateKeyFilePath: D:\pay\apiclient_key.pem
+      apiV3Key: CZBK51236435wxpay435434323FFDuv3
+      weChatPayCertFilePath: D:\pay\wechatpay_166D96F876F45C7D07CE98952A96EC980368ACFC.pem
+      notifyUrl: https://6619cf50.r6.cpolar.top/notify/paySuccess
+      refundNotifyUrl: https://6619cf50.r6.cpolar.top/notify/refundSuccess
   shop:
     address: 北京是海淀区上地十街10号
   baidu:
-    ak: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    ak: nndKv0Hr0qb9nACNjRsAx2R3y1cPhOpg

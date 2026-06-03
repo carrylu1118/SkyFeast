@@ -18,6 +18,13 @@ public interface OrderMapper {
     void insert(Orders orders);
 
     /**
+     * 根据订单号查询订单
+     */
+    @Select("select * from orders where number = #{orderNumber}")
+    Orders getByNumber(String orderNumber);
+
+
+    /**
      * 分页条件查询并按下单时间排序
      * @param ordersPageQueryDTO 查询参数
      */
