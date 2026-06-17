@@ -91,7 +91,9 @@ public class DishController {
      * @param status 状态
      * @param id 菜品id
      */
-    public Result startOrStop(Integer status, Long id) {
+
+    @PostMapping("/status/{status}")
+    public Result startOrStop(@PathVariable Integer status, Long id) {
         log.info("菜品起售停售：{}", id);
         dishService.startOrStop(status, id);
         //清理缓存
