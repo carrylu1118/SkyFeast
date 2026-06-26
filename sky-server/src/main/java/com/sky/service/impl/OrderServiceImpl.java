@@ -73,8 +73,8 @@ public class OrderServiceImpl implements OrderService {
             throw new RuntimeException(MessageConstant.ADDRESS_BOOK_IS_NULL);
         }
 
-        //检查用户收货地址是否超出配送
-        checkOutOfRange(addressBook.getCityName() + addressBook.getDistrictName() + addressBook.getDetail());
+        //TODO 检查用户收货地址是否超出配送
+        //checkOutOfRange(addressBook.getCityName() + addressBook.getDistrictName() + addressBook.getDetail());
 
         Long userId = BaseContext.getCurrentId();
 
@@ -501,7 +501,9 @@ public class OrderServiceImpl implements OrderService {
      * 检查客户的收货地址是否超出配送范围
      * @param address 地址信息
      */
-    private void checkOutOfRange(String address) {
+    // TODO 跳过配送范围检查，后续可通过删除该行恢复
+
+    /*private void checkOutOfRange(String address) {
         Map map = new HashMap();
         map.put("address", shopAddress);
         map.put("output", "json");
@@ -559,7 +561,7 @@ public class OrderServiceImpl implements OrderService {
             //配送距离超过5000米
             throw new OrderBusinessException("超出配送范围");
         }
-    }
+    }*/
 
     /**
      * 客户催单
